@@ -9,10 +9,15 @@ import org.thoughtcrime.securesms.jobs.requirements.MasterSecretRequirement;
 import org.thoughtcrime.securesms.jobs.requirements.SqlCipherMigrationRequirement;
 import org.thoughtcrime.securesms.logging.Log;
 
+import java.io.Serializable;
+
 import androidx.work.Data;
+import androidx.work.WorkManager;
 import androidx.work.Worker;
 
-public abstract class Job extends Worker {
+public abstract class Job extends Worker implements Serializable {
+
+  private static final long serialVersionUID = -4658540468214421276L;
 
   private static final String TAG = Job.class.getSimpleName();
 
